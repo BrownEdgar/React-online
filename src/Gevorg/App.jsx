@@ -1,8 +1,14 @@
+import { useState } from "react";
 import React from "react";
 
+
+
 function App() {
+
+  const [name, setname] = useState("Ani")
+
   return <div className='App'>
-    {/* ...cede here */}
+    <h1>{name}</h1>
   </div>;
 }
 

@@ -6,6 +6,7 @@ function App() {
 
   return <div className='App'>
     <h1>{name}</h1>
+    <button onClick={setname}></button>
   </div>;
 }
 

@@ -71,4 +71,15 @@ button {
     background-color: darkgray;
     cursor: no-drop;
   }
+
+  &.delete {
+    background-color: crimson;
+
+    margin: 0;
+  }
+}
+
+img {
+  max-width: 100%;
+
 }

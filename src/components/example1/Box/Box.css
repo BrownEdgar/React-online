@@ -1,0 +1,27 @@
+.Box {
+  margin: 50px;
+  width: 540px;
+  display: inline-block;
+  padding: 1.2rem 1rem;
+  border-radius: 20px;
+}
+
+.Box__dark {
+  background-color: #1a1a1a;
+  color: white;
+}
+
+.Box__light {
+  background-color: #eaeaea;
+  color: #1a1a1a;
+}
+
+.Box__purple {
+  background-color: purple;
+  color: #e4e4e4;
+}
+
+.Box__block {
+  display: block;
+  width: 100%;
+}

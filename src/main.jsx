@@ -1,6 +1,6 @@
 import { createRoot } from 'react-dom/client'
-import './Gevorg/example/App'
-import App from './components/hooks/useReduser/App'
+import './App.css'
+import App from './Gevorg/hooks/App'
 
 createRoot(document.getElementById('root')).render(
   <App />

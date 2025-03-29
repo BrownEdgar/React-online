@@ -1,0 +1,36 @@
+table {
+  width: 1200px;
+  margin: 50px auto;
+  border-collapse: collapse;
+}
+
+thead {
+  background-color: rgb(186, 186, 186);
+}
+td,
+th {
+  border: 1px solid #fff;
+  padding: 20px;
+  background-color: #1b1b1bda;
+  color: orange;
+  font-size: 20px;
+}
+
+.loader {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  margin: 0 auto;
+  border: 6px solid red;
+  border-top-color: transparent;
+  animation: rotation 600ms linear infinite both;
+}
+
+@keyframes rotation {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}

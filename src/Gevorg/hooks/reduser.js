@@ -1,41 +1,39 @@
 
 
-export const initialValue = [154, 42, 1, 87, 695, 36, 2, 10, 39, 9];
+export const initialValue = [];
 
 export const ACTIONTYPES = {
-    ADD: "ADD",
-   DELETE: "DELETE",
-    ZERO: "ZERO",
-    RANDOM: "RADOM"
+  ADD: "ADD",
+  DELETE: "DELETE",
+  RANDOM: "RADOM"
 }
 
 function reduser(state, action) {
-switch(action.type) {
-case ACTIONTYPES.ADD:  return addItem()
-case ACTIONTYPES.DELETE: return deleteItem()
-case ACTIONTYPES.ZERO: return 0
-case ACTIONTYPES.SORT: return sortItem()
-default: return state
-}
-}
-
-
-
-const deleteItem = () => {
-    const min = Math.min(...initialValue);
-    return initialValue.filter(num => num !== min)
+  switch (action.type) {
+    case ACTIONTYPES.ADD: return addItem(state, action.payload)
+    case ACTIONTYPES.DELETE: return deleteItem(state)
+    case ACTIONTYPES.SORT: return sortItem(state)
+    default: return state
+  }
 }
 
-const addItem = () => {
-    
-   const add = [...initialValue].push()
-    return add
-    
+
+
+const deleteItem = (state) => {
+  const min = Math.min(...state);
+  return state.filter(num => num !== min)
 }
 
-const sortItem = () => {
-   const sort = [...initialValue].sort((a, b) => a - b)
-   return sort
+const addItem = (state, item) => {
+  const add = [...state]
+  add.push(item)
+  return add
+
+}
+
+const sortItem = (state) => {
+
+  return state.toSorted((a, b) => a - b)
 }
 
 export default reduser;

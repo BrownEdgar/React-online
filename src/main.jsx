@@ -1,5 +1,5 @@
 import { createRoot } from 'react-dom/client'
 import './App.css'
-import App from './Gevorg/CustomHooks/App'
+import App from './App'
 
 createRoot(document.getElementById('root')).render(<App />)

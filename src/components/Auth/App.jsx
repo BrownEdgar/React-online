@@ -1,14 +1,20 @@
-import React, { useEffect, useReducer } from "react";
+import React, { useEffect, useReducer, useState } from "react";
 import AuthForm from '../AuthForm/AuthForm';
 import reducer, { ACTIONTYPES, initialState } from './reducer';
 import Users from '../Users/Users';
+import { FaChair } from "react-icons/fa6";
+
+
+
+const DB_URL = import.meta.env.VITE_DB_URL
 
 export default function App() {
   const [state, dispatch] = useReducer(reducer, initialState);
+  const [currentPasswordIndex, setCurrentPasswordIndex] = useState(null);
 
 
   useEffect(() => {
-    fetch("http://localhost:3000/users")
+    fetch(DB_URL)
       .then(res => {
         return res.json()
       })
@@ -23,7 +29,7 @@ export default function App() {
       ...values
     }
     dispatch({ type: ACTIONTYPES.SAVE, payload: user })
-    fetch('http://localhost:3000/users', {
+    fetch(DB_URL, {
       method: 'POST',
       body: JSON.stringify(user),
       headers: {
@@ -33,14 +39,15 @@ export default function App() {
     formik.resetForm()
   }
 
-
-
-
-
   return (
     <div className='App'>
       <AuthForm handleSubmit={handleSubmit} />
-      <Users data={state.data} />
+      <h1>
+        <FaChair />
+        index: {currentPasswordIndex}
+
+      </h1>
+      <Users data={state.data} setValue={setCurrentPasswordIndex} index={currentPasswordIndex} />
     </div>
   );
 }

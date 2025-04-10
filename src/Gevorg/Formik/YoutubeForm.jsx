@@ -25,7 +25,7 @@ function YoutubeForm() {
 
   return (
     <Formik className ='App'
-      initialValue = {initialValues}
+      initialValues = {initialValues}
       validationSchema = {validetionSchema}
       onSubmit = {onSubmit}
     >

@@ -1,0 +1,14 @@
+.Users {
+  display: flex;
+  gap: 30px;
+  flex-wrap: wrap;
+  align-content: start;
+  justify-content: start;
+  align-items: start;
+  & > article {
+    padding: 12px;
+    outline: 1px solid #878282;
+    border-radius: 12px;
+    flex-basis: 25%;
+  }
+}

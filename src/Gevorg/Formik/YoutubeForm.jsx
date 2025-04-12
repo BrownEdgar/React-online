@@ -1,5 +1,5 @@
 import React from 'react'
-import {Formik, Form, Field, ErrorMessage} from 'formik'
+import {Formik, Form, Field, ErrorMessage, FieldArray} from 'formik'
 import * as Yup from 'yup'
 import TextError from './TextError'
 const initialValues = {
@@ -7,7 +7,13 @@ const initialValues = {
   email: '',
   channel: '',
   comments: '',
-  address: ''
+  address: '',
+  social: {
+    facebook: '',
+    x: ''
+  },
+  phoneNumbers: ['', ''], 
+  phNumbers: {}
 }
 
 const  onSubmit = values => {
@@ -70,7 +76,53 @@ function YoutubeForm() {
        }
     }
     </Field>
-      </div>
+    </div>
+
+    <div className='form-control'>
+    <label htmlFor='facebook'>Facebook profile</label>
+    <Field type='text' id='facebook' name='social.facebook'/>
+    </div>
+
+    <div className='form-control'>
+    <label htmlFor='x'>X profile</label>
+    <Field type='text' id='x' name='social.x'/>
+    </div>
+
+    <div className='form-control'>
+    <label htmlFor='primaryPn'>Primary Phone number</label>
+    <Field type='text' id='primaryPn' name='phoneNumbers[0]'/>
+    </div>
+
+    <div className='form-control'>
+    <label htmlFor='secondaryPn'>Secondary Phone number</label>
+    <Field type='text' id='SecondaryPh' name='phoneNumbers[1]'/>
+    </div>
+
+    {/* <div className='form-control'>
+    <label>List of form numbers</label>
+    <FieldArray name='phNumbers'>
+    {
+      (fieldArrayProps) => {
+        console.log('fieldArrayProps', fieldArrayProps)
+        const {push, remove, form} = fieldArrayProps
+        const {values} = form
+        const {phNumbers} = values
+        return <div>
+          {
+            phNumbers.map((phNumber, index) => (
+              <div key={index}>
+                <Field name={`phNumbers[${index}]`}/>
+                <button type='button' onClick={() => remove(index)}> - </button>
+                <button type='button' onClick={() => push('')}> + </button> 
+              </div>
+            ))
+          }
+        </div>
+      }
+    }
+    </FieldArray>
+    </div> */}
+
       <button type='submit'>Submit</button>
       </Form>
     </Formik>

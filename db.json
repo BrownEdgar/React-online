@@ -1,16 +1,10 @@
 {
   "users": [
     {
-      "id": 1,
+      "id": "1",
       "username": "Vardan",
       "email": "vardan@gmail.com",
       "password": "abcdjaghsf!@%w"
-    },
-    {
-      "id": 1744130543825,
-      "username": "abcd1234@gmail.com",
-      "email": "abcd1234@gmail.com",
-      "password": "abcd1234A@gmail.com"
     }
   ]
 }

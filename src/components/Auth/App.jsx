@@ -3,8 +3,9 @@ import AuthForm from '../AuthForm/AuthForm';
 import reducer, { ACTIONTYPES, initialState } from './reducer';
 import Users from '../Users/Users';
 import { FaChair } from "react-icons/fa6";
-
-
+import CarIcon from "../../assets/car.svg";
+import MiningFilled from '../../Icons/MiningFilled';
+import './App.css'
 
 const DB_URL = import.meta.env.VITE_DB_URL
 
@@ -45,8 +46,9 @@ export default function App() {
       <h1>
         <FaChair />
         index: {currentPasswordIndex}
-
       </h1>
+      <img src={CarIcon} alt="" />
+      <button> button     <MiningFilled /></button>
       <Users data={state.data} setValue={setCurrentPasswordIndex} index={currentPasswordIndex} />
     </div>
   );

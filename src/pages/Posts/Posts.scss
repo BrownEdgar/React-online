@@ -1,0 +1,21 @@
+.flex {
+  display: flex;
+  width: 1440px;
+  margin: 30px auto;
+  gap: 10px;
+  flex-wrap: wrap;
+  &__item {
+    flex-basis: 100%;
+    background: #22c1c3;
+    background: linear-gradient(270deg, rgba(34, 193, 195, 1) 50%, rgba(42, 135, 140, 1) 100%);
+    padding: 10px;
+    border-radius: 10px;
+    color: #fff;
+    cursor: pointer;
+    a {
+      text-decoration: none;
+      color: inherit;
+      font-size: 20px;
+    }
+  }
+}

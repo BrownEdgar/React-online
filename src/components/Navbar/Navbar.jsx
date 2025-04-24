@@ -2,7 +2,6 @@ import React from "react";
 import './Navbar.scss'
 import { NavLink } from 'react-router';
 
-
 function Navbar() {
   return <header>
     <nav>

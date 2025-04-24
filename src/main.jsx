@@ -3,8 +3,7 @@ import { lazy, Suspense } from 'react'
 const Posts = lazy(() => import('./pages/Posts/Posts'))
 const Blog = lazy(() => import('./pages/Blog/Blog'))
 const Home = lazy(() => import('./pages/Home/Home'))
-import ErrorPage from './pages/404/404'
-import { createBrowserRouter, RouterProvider } from 'react-router'
+import { createBrowserRouter, Navigate, RouterProvider } from 'react-router'
 
 import App from './App'
 import './index.css'
@@ -26,7 +25,7 @@ const router = createBrowserRouter([
         element: <Post />,
       },
       { path: 'blog', element: <Blog /> },
-      { path: '*', element: <ErrorPage /> },
+      { path: '*', element: <Navigate to={'/'} /> },
     ]
   },
 ]);

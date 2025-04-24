@@ -1,11 +1,11 @@
 import React from "react";
-import ContentLoader from 'react-content-loader';
+import { Link } from "react-router";
 
 
 function Blog() {
   return <div>
     <h1>Blog page</h1>
-
+  <Link to={'/'}>Go Home</Link>
   </div>;
 }
 

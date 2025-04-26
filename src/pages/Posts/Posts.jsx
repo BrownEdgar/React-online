@@ -1,39 +1,43 @@
-import React, { useEffect, useState } from "react";
-import { Link } from 'react-router';
+import React, { useState } from "react";
 import './Posts.scss'
-
-
-function Posts() {
-  const [data, setdata] = useState([]);
-  useEffect(() => {
-    const fetchData = async () => {
-      const response = await fetch('https://jsonplaceholder.typicode.com/posts?_limit=30')
-      const data = await response.json()
-      setdata(data)
-    }
-    fetchData()
-  }, []);
+import useFetchData from '../../components/hooks/useFetchData';
+import { Link } from 'react-router';
+import Pagination from "../../components/Pagination/Paginagion";
+import ReactPaginate from 'react-paginate';
 
 
 
-  return <div>
-    <h1>Our Posts</h1>
-    <div className="flex">
-      {data.map(post => {
-        return (
-          <div className="flex__item" key={post.id}>
-            <Link to={`${post.id}`}>{post.title}</Link>
-          </div>
-        )
-      })}
+export default function Posts() {
+  const [data] = useFetchData({ url: 'https://jsonplaceholder.typicode.com/posts' })
+  const [page, setPage] = useState(1);
+  const [perPage, setPerPage] = useState(3);
+  const slice = data?.slice((page * perPage) - perPage, (page * perPage))
+  return (
+    <div className='Posts'>
+      <h1>Posts Page</h1>
+      <div className="Posts__list">
+        <ol>
+          {slice?.map((post) => {
+            return <li key={post.id}>
+              <span>{post.id}.</span>
+              <Link to={`${post.id}`}>{post.title}</Link>
+            </li>
+          })}
+        </ol>
+        {/* <Pagination perPage={perPage} total={data?.length} setPage={setPage} page={page} /> */}
+
+        <ReactPaginate
+          breakLabel="..."
+
+          onPageChange={(x) => setPage(x.selected)}
+          pageRangeDisplayed={5}
+          pageCount={Math.ceil(100 / perPage)}
+
+          renderOnZeroPageCount={null}
+          className='list'
+          activeClassName="active"
+        />
+      </div>
     </div>
-  </div>;
+  );
 }
-
-
-export const AboutLoader = async () => {
-  const response = await fetch('https://jsonplaceholder.typicode.com/posts?_limit=3')
-  const data = await response.json()
-  return data
-}
-export default Posts;

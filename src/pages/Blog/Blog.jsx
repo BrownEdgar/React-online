@@ -1,12 +1,12 @@
 import React from "react";
-import ContentLoader from 'react-content-loader';
+import './Blog.scss'
+import { Link } from 'react-router';
 
-
-function Blog() {
-  return <div>
-    <h1>Blog page</h1>
-
-  </div>;
+export default function Blog() {
+  return (
+    <div className='Blog'>
+      <h1>Blog Page</h1>
+      <Link to={'/'}>Go home</Link>
+    </div>
+  );
 }
-
-export default Blog;

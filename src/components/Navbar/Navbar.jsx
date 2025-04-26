@@ -1,6 +1,6 @@
 import React from "react";
-import './Navbar.scss'
 import { NavLink } from 'react-router';
+import './Navbar.scss'
 
 
 function Navbar() {
@@ -15,6 +15,9 @@ function Navbar() {
         </li>
         <li>
           <NavLink to="/blog" className={({ isActive }) => isActive ? "active_link" : ''}>Blog</NavLink>
+        </li>
+        <li>
+          <NavLink to="/signin" className={({ isActive }) => isActive ? "active_link" : ''}>Sign in</NavLink>
         </li>
       </ul>
     </nav>

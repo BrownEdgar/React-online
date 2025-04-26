@@ -1,0 +1,19 @@
+.SignIn {
+  width: 500px;
+  margin: 120px auto;
+  form {
+    padding: 12px;
+    div {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+      margin-bottom: 12px;
+      input {
+        padding: 0.6rem 1rem;
+        width: 100%;
+        border-radius: 6px;
+        border: 1px solid #c0bbbb;
+      }
+    }
+  }
+}

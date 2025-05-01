@@ -5,7 +5,7 @@ const Blog = lazy(() => import('./pages/Blog/Blog'))
 const Home = lazy(() => import('./pages/Home/Home'))
 import { createBrowserRouter, Navigate, RouterProvider } from 'react-router'
 
-import App from './App'
+import App from './components/axios/Axios'
 import './index.css'
 import Post from './pages/Post/Post'
 
@@ -36,7 +36,8 @@ function Loading() {
 
 
 createRoot(document.getElementById('root')).render(
-  <Suspense fallback={<Loading />}>
-    <RouterProvider router={router} />
-  </Suspense>
+  // <Suspense fallback={<Loading />}>
+  //   <RouterProvider router={router} />
+  // </Suspense>
+  <App />
 )

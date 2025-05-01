@@ -1,0 +1,8 @@
+.slick-list {
+    height: 500px;
+    background-color: red;
+}
+img{
+    width: 100%;
+    object-fit: cover;
+}

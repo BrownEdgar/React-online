@@ -5,10 +5,10 @@ const Blog = lazy(() => import('./pages/Blog/Blog'))
 const Home = lazy(() => import('./pages/Home/Home'))
 import { createBrowserRouter, Navigate, RouterProvider } from 'react-router'
 
-import App from './components/axios/Axios'
+import App from './App'
 import './index.css'
 import Post from './pages/Post/Post'
-
+import Slider from './pages/slider/Slider'
 
 const router = createBrowserRouter([
   {
@@ -24,6 +24,10 @@ const router = createBrowserRouter([
         path: 'posts/:id',
         element: <Post />,
       },
+      {
+        path: 'slider',
+        element: <Slider />,
+      },
       { path: 'blog', element: <Blog /> },
       { path: '*', element: <Navigate to={'/'} /> },
     ]
@@ -36,8 +40,8 @@ function Loading() {
 
 
 createRoot(document.getElementById('root')).render(
-  // <Suspense fallback={<Loading />}>
-  //   <RouterProvider router={router} />
-  // </Suspense>
-  <App />
+  <Suspense fallback={<Loading />}>
+    <RouterProvider router={router} />
+  </Suspense>
+
 )

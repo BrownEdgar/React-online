@@ -15,6 +15,9 @@ function Navbar() {
         <li>
           <NavLink to="/blog" className={({ isActive }) => isActive ? "active_link" : ''}>Blog</NavLink>
         </li>
+        <li>
+          <NavLink to="/slider" className={({ isActive }) => isActive ? "active_link" : ''}>Slider</NavLink>
+        </li>
       </ul>
     </nav>
   </header>;
